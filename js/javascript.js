@@ -95,25 +95,29 @@ function listarVeiculos() {
 		url:"../server/veiculosClass.php",
 		dataType: 'json',
 		success: function (data) {
-			$.each(data, function(index, item) {
-							var idVeiculo = item.id;
-							var nome = item.nome;
-							var marca = item.marca;
-							var ano = item.ano;
-							var valorVenda = numeroParaReal(item.valorVenda);
-							var acaoTable = '<img class="acaoTable excluir" id="excVeic_'+item.id+'" alt="Excluir" title="Excluir Veículo" data-units="px" src="../img/trash_32.png"/>'+
-							'<img class="acaoTable editar" id="edtVeic_'+item.id+'" alt="Editar" title="Editar Veículo" data-units="px" src="../img/write_32.png"/>';
+			if(data != "" && data != null){
+				$.each(data, function(index, item) {
+					var idVeiculo = item.id;
+					var nome = item.nome;
+					var marca = item.marca;
+					var ano = item.ano;
+					var valorVenda = numeroParaReal(item.valorVenda);
+					var acaoTable = '<img class="acaoTable excluir" id="excVeic_'+item.id+'" alt="Excluir" title="Excluir Veículo" data-units="px" src="../img/trash_32.png"/>'+
+					'<img class="acaoTable editar" id="edtVeic_'+item.id+'" alt="Editar" title="Editar Veículo" data-units="px" src="../img/write_32.png"/>';
 
-							mydata.push({
-								idVeiculo,
-								nome,
-								marca,
-								ano,
-								valorVenda,
-								acaoTable
-							});
-			});
-			$('#tabelaVeiculos').dataTable().fnAddData(mydata);
+					mydata.push({
+						idVeiculo,
+						nome,
+						marca,
+						ano,
+						valorVenda,
+						acaoTable
+					});
+				});
+				$('#tabelaVeiculos').dataTable().fnAddData(mydata);
+			}else{
+				$('#tabelaVeiculos').dataTable().fnClearTable();
+			}			
 		},
 		error: function(jqXHR, textStatus, errorThrown) {
 			mensagemAlerta('Ocorreu um erro na busca dos Veículos!', 'danger');
