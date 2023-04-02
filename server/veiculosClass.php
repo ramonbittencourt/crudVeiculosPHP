@@ -10,18 +10,7 @@
         //FUNÇÃO QUE FAZ A BUSCA DE VEÍCULOS NO DB
         public function listarVeiculos() {
             $resultadoQuery = $this->bd->executar_query('SELECT id, nome, marca, ano, valorVenda FROM veiculos');
-            $veiculos = array();
-
-            while ($linha = $resultadoQuery->fetch_assoc()) {
-                $veiculo = array(
-                    'id' => $linha['id'],
-                    'nome' => $linha['nome'],
-                    'marca' => $linha['marca'],
-                    'ano' => $linha['ano'],
-                    'valorVenda' => $linha['valorVenda']
-                );
-                array_push($veiculos, $veiculo);
-            }
+            $veiculos = $resultadoQuery->fetch_all(MYSQLI_ASSOC);
             $this->fechar_conexao();
             return $veiculos;
              
