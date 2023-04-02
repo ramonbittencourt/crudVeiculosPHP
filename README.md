@@ -5,5 +5,5 @@ https://user-images.githubusercontent.com/15057412/229373117-dac6cc0f-d7f6-405d-
 
 ## Bibliotecas utilizadas
 - https://datatables.net/
-- bootstrap
-- jQuery
+- Bootstrap 5.3.0
+- jQuery - 3.6.4
