@@ -1,0 +1,11 @@
+/* CSS geral da aplicação */
+
+/* altera o cursor do mouse nas imagens ta coluna "Ação" */
+.acaoTable{
+    cursor: pointer;
+}
+/* adicionado quando é feito a ediçao de um veículo da tabela */
+.edicaoVeiculo{
+    border: 3px solid #00c000 !important;
+    box-shadow: 0 0 5px #00c000 !important;
+}

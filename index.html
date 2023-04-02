@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cadastro de Veículos</title>
+        <link rel="stylesheet" href="css/css.css"></link>
+        <link rel="stylesheet" href="css/jquery.dataTables.min.css"></link>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Cadastro de Veículos</h1>
+                </div>
+            </div>
+
+            <!-- INICIO - Alertas realizados no CRUD -->
+            <div id="alertasTela"></div>   
+            <!-- FIM - Alertas realizados no CRUD --> 
+            
+            <!-- INICIO - Formulário de cadastro e edição de veículos -->
+            <form id="formVeiculo">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <input type="hidden" id="idVeiculo" name="idVeiculo">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="form-control" id="nome" name="nome" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="marca">Marca:</label>
+                            <input type="text" class="form-control" id="marca" name="marca" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label for="ano">Ano:</label>
+                            <input type="number" class="form-control" id="ano" name="ano" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label for="valorVenda">Valor de Venda:</label>
+                            <input type="number" class="form-control" id="valorVenda" name="valorVenda" step="0.01" required>
+                        </div>
+                    </div>
+                </div>      
+
+                <div class="row" >
+                    <div class="col-sm-12">
+                        &nbsp;
+                    </div>
+                </div>
+
+                <button type="submit" id="btnCadVeiculo" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" id="btnEdtVeiculo" class="btn btn-primary">Editar</button>
+            </form>
+            <!-- FIM - Formulário de cadastro e edição de veículos -->
+            
+            <hr>
+            
+            <!-- INICIO - Tabela que carrega os veículos cadastrados -->
+            <div class="row" >
+                <div class="col-sm-12">
+                    <fieldset>
+                        <legend> Veículos Cadastrados </legend>
+                        <table id="tabelaVeiculos" class="display nowrap" width="100%"></table>
+                    </fieldset>
+                </div>
+            </div>
+            <!-- FIM - Tabela que carrega os veículos cadastrados -->
+
+            <!-- INICIO -  Modal de exclusão de veículo -->
+            <div class="modal fade" id="modalExcluirVeiculo" tabindex="-1" role="dialog" aria-labelledby="modalExcluirVeiculoLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="modalExcluirVeiculoLabel">Excluir Veículo</h5>
+                    <button type="button" class="close fechaModalExcluir" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    <p>Deseja excluir o veículo?</p>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary fechaModalExcluir" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="btnExcluirVeiculo">Excluir</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <!-- FIM -  Modal de exclusão de veículo -->
+
+        </div>
+        
+        <script src="js/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+        <script src="js/javascript.js"></script>
+        <script src="js/jsDataTable/jquery.dataTables.min.js"></script>
+        <script src="js/jsDataTable/dataTables.buttons.min.js"></script>
+        <script src="js/jsDataTable/buttons.html5.min.js"></script>
+    </body>
+</html>
